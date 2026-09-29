@@ -1,1 +1,43 @@
+#include <stdio.h>
 
+int main() {
+    int n, i, numero;
+    int maior, menor;
+    float soma = 0, media;
+
+    printf("Quantos numeros deseja digitar? ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Quantidade invalida.\n");
+        return 0;
+    }
+
+    for (i = 1; i <= n; i++) {
+        printf("Digite o %d numero: ", i);
+        scanf("%d", &numero);
+
+        soma += numero;
+
+        if (i == 1) {
+            maior = numero;
+            menor = numero;
+        } else {
+            if (numero > maior) {
+                maior = numero;
+            }
+
+            if (numero < menor) {
+                menor = numero;
+            }
+        }
+    }
+
+    media = soma / n;
+
+    printf("\nMaior: %d\n", maior);
+    printf("Menor: %d\n", menor);
+    printf("Media: %.2f\n", media);
+
+    return 0;
+}
